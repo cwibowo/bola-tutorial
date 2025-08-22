@@ -1,5 +1,4 @@
 class_name PlayerStateFactory
-extends Node
 
 var states: Dictionary
 
