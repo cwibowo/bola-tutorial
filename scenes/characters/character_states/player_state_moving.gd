@@ -1,7 +1,7 @@
 class_name PlayerStateMoving
 extends PlayerState
 
-func _process(delta):
+func _process(_delta):
 	if player.control_scheme == Player.ControlScheme.CPU:
 		pass
 	else:
