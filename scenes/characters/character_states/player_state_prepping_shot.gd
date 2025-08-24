@@ -10,6 +10,7 @@ var time_start_shoot := Time.get_ticks_msec()
 func _enter_tree():
 	animation_player.play("prep_kick")
 	player.velocity = Vector2.ZERO
+	shot_direction = player.heading
 	
 func _process(delta):
 	shot_direction += KeyUtils.get_input_vector(player.control_scheme) * delta
