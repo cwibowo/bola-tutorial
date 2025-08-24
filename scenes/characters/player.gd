@@ -19,16 +19,16 @@ var state_factory := PlayerStateFactory.new()
 func _ready():
 	switch_state(State.MOVING)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	flip_sprite()
 	move_and_slide()
 	
-func switch_state(state: State):
+func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.new()):
 	if current_state != null:
 		current_state.queue_free()
 	current_state = state_factory.get_fresh_state(state)
-	current_state.setup(self, animation_player)
+	current_state.setup(self, state_data, animation_player, ball)
 	current_state.state_transition_requested.connect(switch_state.bind())
 	current_state.name = "PlayerStateMachine: " + str(state)
 	call_deferred("add_child", current_state)

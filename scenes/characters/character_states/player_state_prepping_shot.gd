@@ -20,5 +20,5 @@ func _process(delta):
 		var power := ease(ease_time, EASE_FACTOR)
 		var shot_power := player.power * power
 		shot_direction = shot_direction.normalized()
-		print(shot_power, shot_direction)
-		state_transition_requested.emit(Player.State.SHOOTING)
+		var data = PlayerStateData.build().set_shot_power(shot_power).set_shot_direction(shot_direction)
+		transition_state(Player.State.SHOOTING, data)

@@ -17,5 +17,5 @@ func _process(delta):
 			is_tackle_complete = true
 			time_finish_tackle = Time.get_ticks_msec()
 	if Time.get_ticks_msec() - time_finish_tackle > DURATION_PRE_RECOVERY:
-		state_transition_requested.emit(Player.State.RECOVERING)
+		transition_state(Player.State.RECOVERING)
 	

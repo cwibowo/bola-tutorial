@@ -12,4 +12,4 @@ func _enter_tree():
 	
 func _process(_delta):
 	if Time.get_ticks_msec() - time_start_recovery > DURATION_RECOVERY:
-		state_transition_requested.emit(Player.State.MOVING)
+		transition_state(Player.State.MOVING)
