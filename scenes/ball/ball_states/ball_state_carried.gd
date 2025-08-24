@@ -32,6 +32,7 @@ func _process(delta):
 			animation_player.advance(0)
 	else:
 		animation_player.play("idle")
-		
+	
+	process_gravity(delta)
 	ball.position = carrier.position + Vector2(carrier.heading.x * OFFSET_FROM_PLAYER.x + variation_x, OFFSET_FROM_PLAYER.y + variation_y)
 	
