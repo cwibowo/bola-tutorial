@@ -9,7 +9,8 @@ func _enter_tree():
 	
 func on_animation_finish(animation_name):
 	var pass_target := find_teammate()
-	print(pass_target)
+	var target := Vector2(10, 10)
+	ball.pass_to(target)
 	transition_state(Player.State.MOVING)
 	
 func find_teammate() -> Player:
