@@ -1,7 +1,7 @@
 class_name BallStateFreeform
 extends BallState
 
-const BOUNCINESS := 0.7
+
 
 func _enter_tree():
 	GameState.BallCarrier = null
@@ -16,5 +16,5 @@ func _process(delta):
 	
 	var friction := ball.friction_air if ball.height > 0 else ball.friction_ground
 	ball.velocity = ball.velocity.move_toward(Vector2.ZERO, friction * delta)
-	process_gravity(delta, BOUNCINESS)
-	ball.move_and_collide(ball.velocity * delta)
+	process_gravity(delta, ball.BOUNCINESS)
+	move_and_bounce(delta)
